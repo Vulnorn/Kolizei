@@ -18,38 +18,54 @@
 
     }
 
-    class Unit
-    {
-        public Unit (string name, int heals,int attaks,int defens) 
-        {
-            Name = name;
-            Heals = heals;
-            Ataks = attaks;
-            Defens = defens;               
-        }
-
-        public int Heals { get; private set; }
-        public string Name { get; private set; }
-        public int Ataks { get; private set; }
-        public int Defens { get; private set; }
-
-    }
-
     interface IDamageable
     {
         void TakeDamage(int damage);
     }
 
-    class Arcer : Unit, IDamageable
+   abstract class Unit
     {
-        public Arcer(string name, int heals, int attaks, int defens) : base(name, heals, attaks, defens)
+        public Unit(string name, int heals, int attaks, int defens, int alternativeResource)
         {
-
+            Name = name;
+            Heals = heals;
+            Attaks = attaks;
+            Defens = defens;
+            AlternativeResource = alternativeResource;
         }
 
-        public void TakeDamage(int damage)
-        {
-            throw new NotImplementedException();
-        }
+        public int Heals { get; private set; }
+        public string Name { get; private set; }
+        public int Attaks { get; private set; }
+        public int Defens { get; private set; }
+        public int AlternativeResource {  get; private set; }
+
+        public abstract void ShoyInfo();
+        public abstract int Attack();
+    }
+
+    class Warrior : Unit, IDamageable
+    {
+
+    }
+
+    class Mage : Unit, IDamageable
+    {
+
+    }
+
+    class Berserker : Unit, IDamageable
+    {
+ 
+    }
+
+    class Gladiator : Unit, IDamageable
+    {
+ 
+    }
+
+    class Rogue : Unit, IDamageable
+    {
+
     }
 }
