@@ -91,6 +91,14 @@ namespace Kolizei
                 unit2.Attack(unit1);
             }
 
+            OutputResultFight(unit1, unit2);
+
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+        private void OutputResultFight (Unit unit1, Unit unit2)
+        {
             if (unit1.Heals < 1 && unit2.Heals < 1)
             {
                 Console.WriteLine("\nНичья!");
@@ -103,9 +111,6 @@ namespace Kolizei
             {
                 Console.WriteLine($"\nПобедил - {unit2.Name}");
             }
-
-            Console.ReadLine();
-            Console.Clear();
         }
 
         private void ShoyUnits()
@@ -374,7 +379,7 @@ namespace Kolizei
 
     class Utilite
     {
-        public static Random s_random = new Random();
+        private static Random s_random = new Random();
 
         public static int GenerateRandomNumber(int lowerLimitRangeRandom, int upperLimitRangeRandom)
         {
